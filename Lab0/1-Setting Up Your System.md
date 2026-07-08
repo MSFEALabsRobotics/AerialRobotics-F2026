@@ -124,3 +124,33 @@ If the drone is not arming in SITL, adjust these parameters:
 3. Click **Write** to save settings.
 
 ---
+
+
+---
+
+## ⚠️ Troubleshooting: Binding Error
+
+<img width="441" height="214" alt="Screenshot 2026-07-08 061242" src="https://github.com/user-attachments/assets/c4e064a7-077b-46e4-8bfc-cf0e5b785e1d" />
+
+
+Restart WSL, with "wsl -shtudown"
+Restart Airsim
+
+
+---
+
+
+---
+
+## ⚠️ Troubleshooting: Virtulization not enabeled on laptop
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/672407d0-3909-4ea2-ada7-844088da4298" />
+
+
+Check your laptops settings, for going into BIOS and enabeling the parameter
+
+---
+
+
+
+
+
