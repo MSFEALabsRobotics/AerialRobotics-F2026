@@ -63,7 +63,8 @@ Get the latest release from:
 
 ## Download VSCode (optional, recommended)
 IDE for text editing and python
-[VSCODEDownload](https://code.visualstudio.com/download)
+
+[VS CODE Download](https://code.visualstudio.com/download)
 
 ## ⚙️ Configure Settings
 After running Blocks for the first time, it will create an AirSim settings file in:
