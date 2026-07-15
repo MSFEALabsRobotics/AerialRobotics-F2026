@@ -119,6 +119,21 @@ Documents\AirSim
 
 ---
 
+---
+
+## ⚠️ Settings to prevent: Drone Not Arming
+To arm the drone in SITL, These Parameters Need Adjustment:
+
+1. In the SITL GUI → go to **Parameters** → **Editor**  
+2. Set:
+   - `ARMING_CHECK = 0`
+   - `EK3_GPS_CHECK = 0`
+3. Click **Write** to save settings.
+
+---
+
+
+
 ## 📝 Code Editing & Python Scripts
 
 ### ✏️ Creating Scripts
@@ -194,18 +209,7 @@ python3 HelloWorld_AirsimCamera.py
 python3 HelloWorld_SITL.py
 ```
 
----
 
-## ⚠️ Troubleshooting: Drone Not Arming
-If the drone is not arming in SITL, adjust these parameters:
-
-1. In the SITL GUI → go to **Parameters** → **Editor**  
-2. Set:
-   - `ARMING_CHECK = 0`
-   - `EK3_GPS_CHECK = 0`
-3. Click **Write** to save settings.
-
----
 
 
 ---
