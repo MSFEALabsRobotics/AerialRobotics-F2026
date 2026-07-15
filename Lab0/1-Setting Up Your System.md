@@ -42,6 +42,7 @@ wsl --list
 ```
 
 Download Ubuntu Font from:
+
 [UbuntuMonoFont](https://fonts.google.com/specimen/Ubuntu+Mono)
 
 ---
