@@ -67,8 +67,27 @@ After running Blocks for the first time, it will create an AirSim settings file 
 Documents\AirSim
 ```
 
-1. Replace this file with the `settings.json` provided in the GitHub repository.  
-2. **Inside the settings file**, replace `WINDOWSIP` and `WSLIP` with their correct values.
+1. Replace this file content this
+
+```json
+{
+  "SettingsVersion": 1.2,
+  "LogMessagesVisible": true,
+  "SimMode": "Multirotor",
+  "Vehicles": {
+    "Copter": {
+      "VehicleType": "ArduCopter",
+      "UseSerial": false,
+      "LocalHostIp": "WINDOWSIP", 
+      "UdpIp": "WSLIP", 
+      "UdpPort": 9002,
+      "ControlPort": 9003
+    }
+  }
+}
+```
+
+3. **Inside the settings file**, replace `WINDOWSIP` and `WSLIP` with their correct values.
 
 ---
 
