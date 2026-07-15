@@ -13,9 +13,9 @@
 ```bash
 wsl --install --no-distribution
 ```
-```bash
-In Case WSL could be installed because of virtulization setting, check below troubleshooting to enable it
-```
+
+### In Case WSL could be installed because of virtulization setting, check below troubleshooting to enable it
+
 
 ---
 
