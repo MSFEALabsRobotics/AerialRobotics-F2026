@@ -21,6 +21,15 @@ print(f"Connected: system {master.target_system}, component {master.target_compo
 ## 2. Setting Guided Mode, Arming, Takeoff, Landing
 
 ```python
+import time
+from pymavlink import mavutil
+
+# Connect to SITL
+master = mavutil.mavlink_connection('udp:127.0.0.1:14550')
+master.wait_heartbeat()
+print(f"Connected: system {master.target_system}, component {master.target_component}")
+
+
 # ---- Set mode to GUIDED ----
 mode = 'GUIDED'
 mode_id = master.mode_mapping()[mode]
@@ -60,6 +69,16 @@ time.sleep(8)  # wait until we climb
 
 ```python
  """
+
+import time
+from pymavlink import mavutil
+
+# Connect to SITL
+master = mavutil.mavlink_connection('udp:127.0.0.1:14550')
+master.wait_heartbeat()
+print(f"Connected: system {master.target_system}, component {master.target_component}")
+
+
     Send velocity command in the drone BODY frame.
     vx: forward  (m/s)
     vy: right    (m/s)
@@ -93,29 +112,6 @@ time.sleep(8)  # wait until we climb
 
 
 ```
-  
-        
-### Exercise: Keyboard Control
-
-```python
-
-
-print("Control Your Drone With Some Input Commands")
-
-while True:
-    key = input("Press a key: ").lower().strip()
-
-    if key == "takeoff":
-        print("Taking Off")
-    elif key == "land":
-        print("Landing")
-    elif key == "esc":
-        print("Exiting...")
-        break
-    else:
-        print("Unknown key:", key)
-```
-
 ---
 
 ## 4. Relative Position Commands (blocking)
@@ -181,6 +177,15 @@ if __name__ == "__main__":
 ## 5. Commanding Drone with Latitude/Longitude
 
 ```python
+
+import time
+from pymavlink import mavutil
+
+# Connect to SITL
+master = mavutil.mavlink_connection('udp:127.0.0.1:14550')
+master.wait_heartbeat()
+print(f"Connected: system {master.target_system}, component {master.target_component}")
+
 def goto_position_target_global_int(lat, lon, alt, yaw_deg=None):
     """
     Fly to GPS waypoint (lat, lon in degrees, alt in meters above home).
