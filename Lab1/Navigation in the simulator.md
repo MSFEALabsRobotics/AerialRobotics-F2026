@@ -60,6 +60,27 @@ print(f"Taking off to {target_altitude}m...")
 time.sleep(8)  # wait until we climb
 ```
 
+
+---
+
+## ---- to Land ----
+
+```python
+
+print("Landing...")
+
+master.mav.command_long_send(
+    master.target_system,
+    master.target_component,
+    mavutil.mavlink.MAV_CMD_NAV_LAND,
+    0,
+    0, 0, 0, 0,
+    0, 0, 0
+)
+
+```
+
+
 ---
 
 <img width="701" height="475" alt="image" src="https://github.com/user-attachments/assets/b72abae0-bcbf-468e-b5b2-bdd1a0ad8057" />
