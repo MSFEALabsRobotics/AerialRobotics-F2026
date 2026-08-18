@@ -216,16 +216,16 @@ if __name__ == "__main__":
   "LogMessagesVisible": true,
   "SimMode": "Multirotor",
   "OriginGeopoint": {
-    "Latitude": 33.8938,
-    "Longitude": 35.5018,
+    "Latitude": 48.8566,
+    "Longitude": 2.3522,
     "Altitude": 150
   },
   "Vehicles": {
     "Copter": {
       "VehicleType": "ArduCopter",
       "UseSerial": false,
-      "LocalHostIp": "172.29.160.1", 
-      "UdpIp": "172.29.168.136", 
+      "LocalHostIp": WINDOWSIP, 
+      "UdpIp": WSLIP, 
       "UdpPort": 9002,
       "ControlPort": 9003
     }
