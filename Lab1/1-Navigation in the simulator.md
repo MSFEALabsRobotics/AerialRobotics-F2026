@@ -89,7 +89,6 @@ master.mav.command_long_send(
 ## 3. Controlling Drone with Velocity Commands (non-blocking)
 
 ```python
- """
 
 import time
 from pymavlink import mavutil
@@ -99,25 +98,25 @@ master = mavutil.mavlink_connection('udp:127.0.0.1:14550')
 master.wait_heartbeat()
 print(f"Connected: system {master.target_system}, component {master.target_component}")
 
-
+"""
     Send velocity command in the drone BODY frame.
     vx: forward  (m/s)
     vy: right    (m/s)
     vz: down     (m/s)  (negative = up)
     yaw_rate: yaw rate (rad/s)
     duration: seconds
-    """
-    msg = master.mav.set_position_target_local_ned_encode(
-        0,
-        master.target_system,
-        master.target_component,
-        mavutil.mavlink.MAV_FRAME_BODY_NED,
-        0b0000011111000111,  # ignore pos/accel, enable vel + yaw_rate
-        0, 0, 0,
-        vx, vy, vz,
-        0, 0, 0,
-        0, yaw_rate
-    )
+"""
+msg = master.mav.set_position_target_local_ned_encode(
+    0,
+    master.target_system,
+    master.target_component,
+    mavutil.mavlink.MAV_FRAME_BODY_NED,
+    0b0000011111000111,  # ignore pos/accel, enable vel + yaw_rate
+    0, 0, 0,
+    vx, vy, vz,
+    0, 0, 0,
+    0, yaw_rate
+)
 
 
 ```
