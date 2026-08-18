@@ -196,6 +196,43 @@ if __name__ == "__main__":
 
 ## 5. Commanding Drone with Latitude/Longitude
 
+<img width="650" height="333" alt="image" src="https://github.com/user-attachments/assets/cba573cc-2e1c-4851-9a72-c568391341ed" />
+
+### 🌍 What are Latitude and Longitude?
+
+- **Latitude (lat)** measures how far north or south a point is from the equator, expressed in degrees (−90° to +90°).  
+- **Longitude (lon)** measures how far east or west a point is from the Prime Meridian, expressed in degrees (−180° to +180°).  
+- Together, `(lat, lon)` specifies a position anywhere on Earth.  
+- GPS systems also provide **altitude** above sea level.
+
+---
+
+### settings for lat long
+
+```json
+
+{
+  "SettingsVersion": 1.2,
+  "LogMessagesVisible": true,
+  "SimMode": "Multirotor",
+  "OriginGeopoint": {
+    "Latitude": 33.8938,
+    "Longitude": 35.5018,
+    "Altitude": 150
+  },
+  "Vehicles": {
+    "Copter": {
+      "VehicleType": "ArduCopter",
+      "UseSerial": false,
+      "LocalHostIp": "172.29.160.1", 
+      "UdpIp": "172.29.168.136", 
+      "UdpPort": 9002,
+      "ControlPort": 9003
+    }
+  }
+}
+```
+
 ```python
 
 import time
