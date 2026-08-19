@@ -15,6 +15,8 @@ The tutorial is organized in four parts:
 
 <img width="743" height="500" alt="image" src="https://github.com/user-attachments/assets/a02512b3-1a47-4977-82dc-a8976ee193f8" />
 
+<img width="1546" height="880" alt="image" src="https://github.com/user-attachments/assets/8d27eb77-75b2-4b1c-9413-528e4b7eaba8" />
+
 <img width="526" height="286" alt="image" src="https://github.com/user-attachments/assets/a7dff520-4062-454a-afad-745b352aca25" />
 
 
