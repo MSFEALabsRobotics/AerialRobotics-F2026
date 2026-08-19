@@ -15,6 +15,9 @@ The tutorial is organized in four parts:
 
 <img width="743" height="500" alt="image" src="https://github.com/user-attachments/assets/a02512b3-1a47-4977-82dc-a8976ee193f8" />
 
+<img width="526" height="286" alt="image" src="https://github.com/user-attachments/assets/a7dff520-4062-454a-afad-745b352aca25" />
+
+
 This section shows the most common beginner operations in **cv2** with short code snippets.
 
 ---
