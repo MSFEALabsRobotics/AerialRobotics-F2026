@@ -212,7 +212,7 @@ This way, you can adjust the threshold live and see how the binary image changes
 
 # Part 3 — OpenCV HSV Color Filtering
 
-![Uploading 1_W30TLUP9avQwyyLfwu7WYA.jpg…]()
+<img width="557" height="419" alt="image" src="https://github.com/user-attachments/assets/53800889-8c91-47d5-b919-a458afb44523" />
 
 This section shows how to use **HSV color space** in OpenCV to detect and isolate specific colors.
 
