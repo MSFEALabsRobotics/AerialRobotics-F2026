@@ -3,6 +3,18 @@
 This tutorial shows how to connect to ArduPilot SITL (Software In The Loop) and control the drone using Python with **pymavlink**.
 
 ---
+## Navigation Modes and Origins
+
+Four command types, all within ArduPilot’s **GUIDED** flight mode.
+
+| Command type | MAVLink frame | Arguments and units | Reference | Example |
+| --- | --- | --- | --- | --- |
+| **World position** | `MAV_FRAME_LOCAL_NED` | `x, y, z` in **m**: North, East, Down | Fixed local origin; axes stay aligned with Earth | `(2, 0, -3)` → target 2 m north and 3 m above the origin |
+| **Drone-relative position** | `MAV_FRAME_BODY_OFFSET_NED` | `x, y, z` in **m**: Forward, Right, Down | Drone’s position and heading when the command is received | `(2, 0, 0)` → target 2 m ahead, at the same altitude |
+| **Drone-relative velocity** | `MAV_FRAME_BODY_NED` | `vx, vy, vz` in **m/s**: Forward, Right, Down | Drone’s current heading | `(0.5, 0, 0)` → move forward at 0.5 m/s |
+| **Global/GPS position** | `MAV_FRAME_GLOBAL_RELATIVE_ALT` | Latitude, longitude in **degrees**; altitude in **m** | Geographic coordinates; altitude above home | `(lat, lon, 3)` → target that geographic location, 3 m above home altitude |
+
+---
 
 ## 1. Importing & Connecting
 
