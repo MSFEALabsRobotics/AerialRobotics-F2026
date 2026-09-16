@@ -384,7 +384,29 @@ while True:
 
 ---
 
-## 7 Summary Functions (All modes)
+## 7 Summary Functions (All modes)  Experiment with Masks
+
+
+### MAVLink Bitmasks
+
+These numbers are **bitmasks**: they tell the drone **which values in the command to use and which to ignore**.
+
+For position, velocity, acceleration, yaw, and yaw rate:
+
+- **0 = use this field**
+- **1 = ignore this field**
+
+Each binary digit controls one field. The decimal number is simply another way of writing those same bits.
+
+| Mask | What the drone uses |
+| --- | --- |
+| `3576` | Position: **x, y, z** |
+| `2552` | Position **and yaw** |
+| `1479` | Velocity **and yaw rate** |
+
+**How to explain it:** “We send a message containing many values. The mask selects which values the drone should follow.”
+
+*The force flag is a special bit: it selects force instead of acceleration, rather than use/ignore.*
 
 ## Drone movement functions
 
