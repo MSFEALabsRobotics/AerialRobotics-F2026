@@ -361,3 +361,141 @@ while True:
 ```
 
 ---
+
+## 7 Summary Functions (All modes)
+
+## Drone movement functions
+
+Requires an existing pymavlink connection named `master`. The drone should already be airborne in **GUIDED** mode with a valid position estimate.
+
+```python
+import time
+from pymavlink import mavutil
+
+M = mavutil.mavlink
+
+POSITION_MASK = 3576   # Use position; ignore velocity, acceleration and yaw
+VELOCITY_MASK = 1479   # Use velocity and yaw rate; ignore other fields
+
+
+# 1) WORLD POSITION
+# x = North, y = East, z = Down, in metres from the fixed local origin.
+def position_world(x, y, z):
+    master.mav.set_position_target_local_ned_send(
+        0, master.target_system, master.target_component,
+        M.MAV_FRAME_LOCAL_NED,
+        POSITION_MASK,
+        x, y, z,       # Target position
+        0, 0, 0,       # Velocity: ignored
+        0, 0, 0,       # Acceleration: ignored
+        0, 0           # Yaw and yaw rate: ignored
+    )
+
+
+# 2) DRONE-RELATIVE POSITION
+# forward, right, down = displacement in metres from the drone now.
+def position_drone(forward, right, down):
+    master.mav.set_position_target_local_ned_send(
+        0, master.target_system, master.target_component,
+        M.MAV_FRAME_BODY_OFFSET_NED,
+        POSITION_MASK,
+        forward, right, down,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0
+    )
+
+
+# 3) DRONE-RELATIVE VELOCITY
+# vx = Forward, vy = Right, vz = Down, in m/s.
+# duration = how long to send this velocity, in seconds.
+def velocity_drone(vx, vy, vz, duration):
+    end_time = time.monotonic() + duration
+
+    while time.monotonic() < end_time:
+        master.mav.set_position_target_local_ned_send(
+            0, master.target_system, master.target_component,
+            M.MAV_FRAME_BODY_NED,
+            VELOCITY_MASK,
+            0, 0, 0,       # Position: ignored
+            vx, vy, vz,    # Requested velocity
+            0, 0, 0,       # Acceleration: ignored
+            0, 0           # Yaw ignored; yaw rate = 0
+        )
+        time.sleep(0.1)     # Repeat at approximately 10 Hz
+
+    # Request zero velocity at the end.
+    master.mav.set_position_target_local_ned_send(
+        0, master.target_system, master.target_component,
+        M.MAV_FRAME_BODY_NED,
+        VELOCITY_MASK,
+        0, 0, 0,
+        0, 0, 0,           # Zero velocity
+        0, 0, 0,
+        0, 0
+    )
+
+
+# 4) GLOBAL / GPS POSITION
+# latitude, longitude = decimal degrees.
+# altitude = metres ABOVE HOME (positive upward).
+def position_gps(latitude, longitude, altitude):
+    master.mav.set_position_target_global_int_send(
+        0, master.target_system, master.target_component,
+        M.MAV_FRAME_GLOBAL_RELATIVE_ALT,
+        POSITION_MASK,
+        round(latitude * 1e7),
+        round(longitude * 1e7),
+        altitude,
+        0, 0, 0,
+        0, 0, 0,
+        0, 0
+    )
+
+
+# READ CURRENT WORLD POSITION
+# Returns x, y, z in local North-East-Down coordinates, in metres.
+def get_position_world():
+    # Discard queued local-position messages before requesting a new one.
+    while master.recv_match(type="LOCAL_POSITION_NED", blocking=False):
+        pass
+
+    master.mav.command_long_send(
+        master.target_system, master.target_component,
+        M.MAV_CMD_REQUEST_MESSAGE,
+        0,
+        M.MAVLINK_MSG_ID_LOCAL_POSITION_NED,
+        0, 0, 0, 0, 0, 0
+    )
+
+    pos = master.recv_match(
+        type="LOCAL_POSITION_NED", blocking=True, timeout=2
+    )
+
+    if pos is None:
+        raise RuntimeError("No local position received.")
+
+    return pos.x, pos.y, pos.z
+```
+
+## Example calls
+
+Uncomment one movement example at a time.
+
+```python
+# Read and display current world position.
+x, y, z = get_position_world()
+print("North:", x, "East:", y, "Down:", z)
+
+# WORLD POSITION: target 1 m north of the measured position.
+# position_world(x + 1, y, z)
+
+# DRONE POSITION: target 1 m forward, keeping the same altitude.
+# position_drone(1, 0, 0)
+
+# DRONE VELOCITY: forward at 0.3 m/s for 3 seconds, then request stop.
+# velocity_drone(0.3, 0, 0, 3)
+
+# GPS POSITION: use your chosen coordinates and height above home.
+# position_gps(target_latitude, target_longitude, 3)
+```
