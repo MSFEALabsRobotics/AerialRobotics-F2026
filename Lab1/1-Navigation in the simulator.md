@@ -61,6 +61,28 @@ master.mav.command_long_send(
 print("Arming...")
 time.sleep(2)
 
+
+# ----NEW ARMING----
+
+    # 4) ARM
+    master.mav.command_long_send(
+        master.target_system, master.target_component,
+        M.MAV_CMD_COMPONENT_ARM_DISARM,
+        0, 1, 0, 0, 0, 0, 0, 0
+    )
+
+    deadline = time.monotonic() + 10
+    while True:
+        heartbeat = master.recv_match(
+            type="HEARTBEAT", blocking=True, timeout=1
+        )
+        if heartbeat and heartbeat.base_mode & M.MAV_MODE_FLAG_SAFETY_ARMED:
+            break
+        if time.monotonic() > deadline:
+            raise RuntimeError("Arming not confirmed")
+
+    print("Armed")
+
 # ---- Takeoff ----
 target_altitude = 5  # meters
 master.mav.command_long_send(
