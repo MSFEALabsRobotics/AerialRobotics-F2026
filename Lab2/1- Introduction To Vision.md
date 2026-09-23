@@ -343,3 +343,8 @@ python -c "import cv2; print(cv2.__version__)"
 ```
 
 If a version number appears, OpenCV is ready. Run these commands in **Command Prompt**, not inside Python’s `>>>` prompt.
+
+
+# Practice
+
+Apply speed and position commands, so you are able to autonomously hit the orange ball (Open Loop)
