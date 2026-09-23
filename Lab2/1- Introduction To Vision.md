@@ -323,3 +323,23 @@ This allows the AirSim camera feed to later be used for operations such as:
 - HSV color filtering
 - Object detection
 - Computer vision for drone navigation
+
+
+### Install Python and OpenCV on Windows (opitonal, to test webcam)
+
+If Python is not installed, download it from https://www.python.org/downloads/ and run the installer. If shown, tick **“Add python.exe to PATH.”** Then close and reopen **Command Prompt**.
+
+
+Install OpenCV:
+
+```bat
+python -m pip install opencv-python
+```
+
+Verify the installation:
+
+```bat
+python -c "import cv2; print(cv2.__version__)"
+```
+
+If a version number appears, OpenCV is ready. Run these commands in **Command Prompt**, not inside Python’s `>>>` prompt.
