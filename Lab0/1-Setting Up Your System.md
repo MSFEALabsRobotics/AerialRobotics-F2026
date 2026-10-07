@@ -1,3 +1,7 @@
+# Video Tutorial
+
+🎥 [Watch: Week 1 – Lab Setup – Getting Started](https://mailaub-my.sharepoint.com/personal/bk49_aub_edu_lb/_layouts/15/stream.aspx?sw=bypass&bypassReason=abandoned&id=%2Fpersonal%2Fbk49_aub_edu_lb%2FDocuments%2F3%2E%20Teaching%2FMECH%20659%20Aerial%20Robotics%2FDEC%2FProduced%2FLabs%2FLab0%2FWeek%201%20-%20Lab%20Setup%20-%20Getting%20Started%20System%20Setup%2Emp4)
+
 # System Architechture
 
 <img width="976" height="551" alt="image" src="https://github.com/user-attachments/assets/f76fc739-809b-4473-9418-6fe07614c0cb" />
