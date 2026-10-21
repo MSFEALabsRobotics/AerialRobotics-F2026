@@ -152,16 +152,34 @@ netsh advfirewall firewall add rule name="Allow ICMPv4 In" protocol=icmpv4:8,any
 
 Then repeat the ping from the Raspberry Pi.
 
-> This rule allows incoming ping requests. Other communication, such as MAVLink, may require separate firewall rules.
 
 ---
 
-## 8️⃣ Use Scripts From Lab0 
+## 8️⃣ Use Scripts From Lab0
 
-2- To Drive The motor in the simulator
-1- To get and image from Airsim to the PI,
+Use the Python scripts provided in **Lab0** to:
 
+1. Get an image from **AirSim** on the Raspberry Pi.
+2. Drive the motor in the simulator from the Raspberry Pi.
 
+### Create and run each script
+
+1. On the **Raspberry Pi**, create a Python file using `nano`:
+   ```bash
+   nano filename.py
+   ```
+   Replace `filename.py` with the name of the script.
+
+2. Paste the corresponding **Lab0 Python code** into the file.
+
+3. Save and exit:
+   - Press **Ctrl + O**, then **Enter** to save.
+   - Press **Ctrl + X** to exit.
+
+4. Run the script:
+   ```bash
+   python3 filename.py
+   ```
 
 ---
 
