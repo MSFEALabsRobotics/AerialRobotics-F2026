@@ -208,3 +208,11 @@ python3 filename.py
 ```
 
 ---
+
+## 9 Exercices
+
+1. Create a script that gets Video (not a single frame) from Airsim, and makes the detection with CV2 on the PI. EVALUTA FPS
+2. Use the raspberry Pi Camera to get a frame instead of Airsim, and apply same detection.
+3. Drive The Drone in AIrsim through mavlink form the PI and try to hit the orange object(PI WILL CONTROL SITL IN WSL)
+
+---
