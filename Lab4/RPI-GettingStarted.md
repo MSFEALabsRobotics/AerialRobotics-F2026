@@ -160,26 +160,51 @@ Then repeat the ping from the Raspberry Pi.
 Use the Python scripts provided in **Lab0** to:
 
 1. Get an image from **AirSim** on the Raspberry Pi.
-2. Drive the motor in the simulator from the Raspberry Pi.
+2. Control the simulated drone from the Raspberry Pi.
 
-### Create and run each script
+### 1. Configure the IP addresses
 
-1. On the **Raspberry Pi**, create a Python file using `nano`:
-   ```bash
-   nano filename.py
-   ```
-   Replace `filename.py` with the name of the script.
+- **In the SITL launch command on WSL**, add an output using the **Raspberry Pi’s IP address**:
+  ```bash
+  --out udp:IPOFTHEPI:14550
+  ```
+  Example:
+  ```bash
+  --out udp:192.168.41.89:14550
+  ```
 
-2. Paste the corresponding **Lab0 Python code** into the file.
+- **In the camera script on the Pi**, use the **Windows Wi-Fi IPv4 address** shown by `ipconfig`, not the WSL IP:
+  ```python
+  client = airsim.MultirotorClient(ip="IPOFWINDOWSONWIFI")
+  ```
 
-3. Save and exit:
-   - Press **Ctrl + O**, then **Enter** to save.
-   - Press **Ctrl + X** to exit.
+- **In the autopilot control script on the Pi**, listen for MAVLink on all local network interfaces:
+  ```python
+  master = mavutil.mavlink_connection("udpin:0.0.0.0:14550")
+  master.wait_heartbeat()
+  ```
+  Here, **`0.0.0.0` is correct**: the Pi listens for messages from WSL and learns the return address from incoming traffic.
 
-4. Run the script:
-   ```bash
-   python3 filename.py
-   ```
+### 2. Create each Python script
+
+On the **Raspberry Pi**, open a file using `nano`:
+
+```bash
+nano filename.py
+```
+
+Replace `filename.py` with the script name, then paste the corresponding **Lab0 Python code** and update its connection settings as shown above.
+
+Save and exit:
+- Press **Ctrl + O**, then **Enter** to save.
+- Press **Ctrl + X** to exit.
+
+### 3. Run the scripts
+
+Start **AirSim on Windows** and **SITL on WSL**, then run the required script on the Pi:
+
+```bash
+python3 filename.py
+```
 
 ---
-
