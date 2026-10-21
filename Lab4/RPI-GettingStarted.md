@@ -1,3 +1,15 @@
+<img width="447" height="447" alt="image" src="https://github.com/user-attachments/assets/a76a0d9d-51b4-4b61-b420-82f23fbf4e75" />
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/4570bfd2-934c-4311-ae4f-184f06f3d142" />
+
+<img width="970" height="728" alt="image" src="https://github.com/user-attachments/assets/c70f81e1-5685-4eac-80c8-50bab9afb285" />
+
+<img width="680" height="411" alt="image" src="https://github.com/user-attachments/assets/09ab93da-b127-4c99-a65f-94387d572387" />
+
+
+
+# Take Photos of what is available in your Pi Kit, you are responsible to deliver it back
+
 # 🛩️ Setting up Raspberry Pi for AirSim
 
 This guide explains how to prepare a **Raspberry Pi (Lite or Desktop)** to connect with **AirSim** and process image or MAVLink data.
