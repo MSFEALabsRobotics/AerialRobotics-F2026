@@ -118,28 +118,49 @@ pip3 install pymavlink --break-system-packages
 
 ## 7️⃣ Allow Windows ↔ Pi Network Communication
 
-On **Windows**, open Command Prompt as Administrator and run:
+### 1. Find your Windows Wi-Fi IP address
 
-### 🔹 Allow ICMP Ping
+On **Windows**, open Command Prompt and run:
+
+```cmd
+ipconfig
+```
+
+Under **Wireless LAN adapter Wi-Fi**, find the **IPv4 Address**, for example `192.168.41.100`.
+
+> Use the **Windows Wi-Fi IP**, not the WSL or virtual adapter IP.
+
+### 2. Ping Windows from the Raspberry Pi
+
+Make sure both devices are connected to the **same router or phone hotspot**.
+
+On the **Raspberry Pi**, run:
+
 ```bash
+ping -c 4 192.168.41.100
+```
+
+Replace `192.168.41.100` with your Windows Wi-Fi IP address.
+
+### 3. If the ping fails, allow it through Windows Firewall
+
+On **Windows**, open **Command Prompt as Administrator** and run:
+
+```cmd
 netsh advfirewall firewall add rule name="Allow ICMPv4 In" protocol=icmpv4:8,any dir=in action=allow
 ```
 
-### 🔹 Optional Port Forwarding for MAVLink (14550) and AirSim Ports (9002, 9003)
-Replace `172.29.168.136` with your **WSL/Windows IP**:
-```bash
-netsh interface portproxy add v4tov4 listenport=14550 listenaddress=0.0.0.0 connectport=14550 connectaddress=172.29.168.136
-netsh interface portproxy add v4tov4 listenport=9002 listenaddress=0.0.0.0 connectport=9002 connectaddress=172.29.168.136
-netsh interface portproxy add v4tov4 listenport=9003 listenaddress=0.0.0.0 connectport=9003 connectaddress=172.29.168.136
-netsh interface portproxy show all
-netsh advfirewall firewall add rule name="WSL MAVLink" dir=in action=allow protocol=UDP localport=14550,9002,9003
-```
+Then repeat the ping from the Raspberry Pi.
+
+> This rule allows incoming ping requests. Other communication, such as MAVLink, may require separate firewall rules.
 
 ---
 
-## 8️⃣ Test AirSim Python Connection
+## 8️⃣ Use Scripts From Lab0 
 
-Create a simple test file Hello Airsim Frame.py
+2- To Drive The motor in the simulator
+1- To get and image from Airsim to the PI,
+
 
 
 ---
