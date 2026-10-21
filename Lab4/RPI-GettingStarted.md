@@ -8,7 +8,7 @@
 
 
 
-# Take Photos of what is available in your Pi Kit, you are responsible to deliver it back
+# Take Photos of what is available in your Pi Kit, you are responsible for the hardware
 
 # 🛩️ Setting up Raspberry Pi for AirSim
 
