@@ -29,18 +29,62 @@ Choose either:
 
 ## 3️⃣ First Boot
 
-1. Connect:
-   - HDMI display  
-   - Keyboard
-   - Power supply  
-2. Boot up and open terminal  
-3. Run configuration:
-   ```bash
-   sudo raspi-config
-   ```
-   - Set Wi-Fi country as US and connect to network  
-   - Enable **SSH** (used for remote connection)
-   - ssh username@ipaddress
+### 1. Connect and start
+
+Connect the following, then power on the Raspberry Pi:
+- HDMI display
+- Keyboard
+- Power supply
+
+Log in using the credentials set in Raspberry Pi Imager:
+- **Username:** `pi`
+- **Password:** `pi`
+
+### 2. Open configuration
+
+Open a terminal and run:
+
+```bash
+sudo raspi-config
+```
+
+Configure the following:
+
+| Setting | Menu | Action |
+|---|---|---|
+| Keyboard | Localisation Options → Keyboard | Select **English (US)** |
+| Wi-Fi | System Options → Wireless LAN | Enter your network name (**SSID**) and password |
+| SSH | Interface Options → SSH | Select **Yes** to enable remote access |
+
+If prompted for a Wi-Fi country, select the country where you are using the Raspberry Pi.
+
+Select **Finish** and reboot if prompted.
+
+### 3. Find the IP address
+
+Once Wi-Fi is connected, run:
+
+```bash
+ip address show
+```
+
+Under **`wlan0`**, find the address after `inet`, for example `192.168.1.100`. Ignore the `/24` suffix.
+
+### 4. Connect from your laptop
+
+Connect your laptop to the **same router or phone hotspot** as the Raspberry Pi.
+
+Open a terminal on your laptop and run:
+
+```bash
+ssh pi@192.168.1.100
+```
+
+Replace `192.168.1.100` with your Raspberry Pi’s IP address.
+
+- Type `yes` if asked to confirm the connection.
+- Enter the password: `pi`.
+- Password characters will not appear while typing.
 
 ---
 
