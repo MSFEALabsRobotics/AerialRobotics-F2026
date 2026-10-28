@@ -1,3 +1,9 @@
+Configure settings with Mission Planner
+
+1. Install [Mission Planner](https://ardupilot.org/planner/docs/mission-planner-installation.html), including its device drivers.
+2. Connect the Pixhawk to the laptop using USB.
+3. Select its **COM port**, and click **CONNECT**.
+
 # Mission Planner Pre-Flight Setup
 **Holybro Quad — ArduCopter**
 
