@@ -5,6 +5,7 @@
 
 <img width="228" height="352" alt="image" src="https://github.com/user-attachments/assets/1de2849c-467b-448d-ab41-5a5d4205b9b1" />
 
+<img width="864" height="1536" alt="image" src="https://github.com/user-attachments/assets/77203b54-c51c-4939-ac17-5181a1165c38" />
 
 Connect a **Raspberry Pi 5 running Ubuntu** to a **Pixhawk 6X running ArduPilot** using **TELEM2**, **MAVLink 2**, and **115200 baud**.
 
