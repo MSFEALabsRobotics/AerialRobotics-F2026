@@ -1,5 +1,8 @@
 # Connecting Pi to Pixhawk
 
+
+<img width="1024" height="576" alt="image" src="https://github.com/user-attachments/assets/01789907-1c76-4dcd-9b09-1ac3615a11fc" />
+
 Connect a **Raspberry Pi 5 running Ubuntu** to a **Pixhawk 6X running ArduPilot** using **TELEM2**, **MAVLink 2**, and **115200 baud**.
 
 This summarizes our working setup, including the successful Python heartbeat test. Commands run on the Pi unless Windows is explicitly mentioned. These Pi boot settings apply to the Raspberry Pi 5, not Orange Pi boards.
